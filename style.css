@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    /* You can adjust the width here */
+    grid-template-rows: repeat(10, 40px);
+    /* You can adjust the height here */
+    gap: 1px;
+    /* Add a small gap between the cells for better visibility */
+}
+
+.grid-item {
+    width: 100%;
+    height: 100%;
+    background-color: lightgray;
+    border: 1px solid white;
+    /* Add border to separate cells */
+}
+
+.grid-item:hover{
+    background-color: goldenrod;
+}
