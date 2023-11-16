@@ -1,10 +1,14 @@
-body {
+*{
+    margin: 0;
+}
+
+/* .grid {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-}
+} */
 
 .grid-container {
     display: grid;
@@ -26,4 +30,40 @@ body {
 
 .grid-item:hover{
     background-color: goldenrod;
+}
+
+#carrier{
+    width: 204px;
+    height: 40px;
+    background-color: red;
+}
+
+#battleship{
+    width: 164px;
+    height: 40px;
+    background-color: blue;
+}
+
+#cruiser{
+    width: 124px;
+    height: 40px;
+    background-color: yellow;
+}
+
+#submarine{
+    width: 124px;
+    height: 40px;
+    background-color: brown;
+}
+
+#destroyer{
+    width: 84px;
+    height: 40px;
+    background-color: seagreen;
+}
+
+.ships{
+    display: flex;
+    margin-top: 30px;
+    gap: 13px;
 }

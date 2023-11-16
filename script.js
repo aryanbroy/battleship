@@ -1,6 +1,4 @@
-function ship() {
-    
-    let ships =  {
+let ships =  {
         carrier : {
             'length': 5,
             'hit': 0
@@ -21,21 +19,51 @@ function ship() {
             'length': 2,
             'hit' : 0
         }
-    };
-    return ships;
-}
+};
 
-console.log(ship())
 
-function hit(shipName) {
-    shipName.hit++;
-}
+let ship = (length) => {
+    let shipLength = length;
+    let hitCount = 0;
 
-function isSunk(shipName) {
-    if (shipName.hit === 17) {
-        return true;
+    let hit = () => {
+        hitCount++;
     }
-    else {
-        return false;
+
+    let isSunk = () => {
+        if (hitCount === shipLength) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
+    return {shipLength, hitCount ,hit, isSunk}
 }
+
+let placeDiv = (x_pos, y_pos) => {
+    var d = document.getElementById('carrier');
+    d.style.position = "absolute";
+    d.style.left = x_pos+'px';
+    d.style.top = y_pos+'px';
+}
+
+placeDiv(1, 83);
+
+var gridItems = document.querySelectorAll('.grid-item');
+
+    gridItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            getPosition(item);
+        });
+    });
+
+    function getPosition(element) {
+        var index = Array.from(element.parentElement.children).indexOf(element);
+        
+        var column = index % 3 + 1; // Assuming 3 columns
+        var row = Math.floor(index / 3) + 1;
+
+        alert("Row: " + row + ", Column: " + column);
+    }
+
