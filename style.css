@@ -67,3 +67,7 @@
     margin-top: 30px;
     gap: 13px;
 }
+
+.selected{
+    background-color: red;
+}
