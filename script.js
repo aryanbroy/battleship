@@ -59,13 +59,37 @@ function getPosition(element) {
     return { column, row };
 }
 
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 function addShip(length) {
     let randomIndex = Math.floor(Math.random() * 100) + 1;
     let tf = [true, false];
     let randomBoolean = Math.floor(Math.random() * 2);
     let idArr = [];
     let horizontal = tf[randomBoolean];
-    console.log(horizontal)
+    console.log(horizontal);
+    let temp = (Math.floor((randomIndex / 10) % 10) * 10) + 10;
+    if (horizontal) {
+        if (randomIndex >= 100 - length || randomIndex >= 90 - length || randomIndex >= 80 - length || randomIndex >= 70 - length || randomIndex >= 60 - length || randomIndex >= 50 - length || randomIndex >= 40 - length || randomIndex >= 30 - length || randomIndex >= 20 - length || randomIndex >= 10 - length) { // need to find some logic here
+            randomIndex = temp - length;
+        }
+    }
+    else {
+        if (length === 2 && randomIndex > 90) {
+            randomIndex = randomIndex-10;
+        }
+        if (length === 3 && randomIndex > 80) {
+            randomIndex = randomIndex-20;
+        }
+        if (length === 4 && randomIndex > 70) {
+            randomIndex = randomIndex-30;
+        }
+        if (length === 5 && randomIndex > 60) {
+            randomIndex = randomIndex-40;
+        }
+    }
     for (let i = 0; i < length; i++){
         if (horizontal === true) {
             const findId = document.getElementById(`${randomIndex + i}`);
@@ -78,7 +102,10 @@ function addShip(length) {
             idArr.push(findId);
         }
     }
-    console.log(idArr)
+    idArr.forEach(e => {
+        console.log(e);
+    })
 }
 
-addShip(destroyer.length);
+addShip(cruiser.length);
+// addShip(carrier.length);
